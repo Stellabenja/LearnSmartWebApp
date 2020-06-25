@@ -8,3 +8,4 @@ class TopicsApi(Resource):
     def get(self):
         topics = Topic.objects().to_json()
         return Response(topics, mimetype="application/json", status=200)
+#@jwt_required to restrict unauthorised users to enter our app
