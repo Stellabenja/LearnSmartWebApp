@@ -1,7 +1,7 @@
 from flask import request
 from flask_jwt_extended import create_access_token
 
-from backend.database.models.User_model import User
+from backend.database.models.user_model import User
 from flask_restful import Resource
 import datetime
 
