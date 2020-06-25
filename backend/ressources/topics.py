@@ -1,5 +1,5 @@
-from flask import Response, request
-from backend.database.Topic import Topic
+from flask import Response
+from backend.database.models.Topic import Topic
 from flask_restful import Resource
 
 

@@ -1,5 +1,5 @@
 from flask import request
-from backend.database.User_model import User
+from backend.database.models.User_model import User
 from flask_restful import Resource
 
 
