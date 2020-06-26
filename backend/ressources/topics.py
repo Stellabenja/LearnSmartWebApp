@@ -1,5 +1,5 @@
 from flask import Response
-from backend.database.models.Topic import Topic
+from LearnSmart.backend.database.models.Topic import Topic
 from flask_restful import Resource
 
 

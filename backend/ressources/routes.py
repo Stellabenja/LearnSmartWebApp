@@ -1,5 +1,5 @@
-from backend.ressources.authentification import SignupApi
-from backend.ressources.topics import TopicsApi
+from LearnSmart.backend.ressources.authentification import SignupApi
+from LearnSmart.backend.ressources.topics import TopicsApi
 
 
 # define the function to initialize the routes

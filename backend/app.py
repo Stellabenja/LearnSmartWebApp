@@ -1,8 +1,8 @@
 from flask_bcrypt import Bcrypt
 from flask import Flask, Response, request
 from flask_restful import Api
-from backend.database.db import initialize_db
-from backend.ressources.routes import initialize_routes
+from LearnSmart.backend.database.db import initialize_db
+from LearnSmart.backend.ressources.routes import initialize_routes
 
 app = Flask(__name__)
 api = Api(app)

@@ -1,5 +1,5 @@
 from flask import request
-from backend.database.models.User_model import User
+from LearnSmart.backend.database.models.User_model import User
 from flask_restful import Resource
 
 
