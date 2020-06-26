@@ -8,3 +8,6 @@ class QuizApi(Resource):
         quiz = Quiz(**body).save()
         id = quiz.id
         return {'id': str(id)}, 200
+    def get(self):
+        quizes = Quiz.objects()
+        return Response(quizes, mimetype="application/json", status=200)
