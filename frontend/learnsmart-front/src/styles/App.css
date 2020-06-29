@@ -27,7 +27,33 @@
 .App-link {
   color: #61dafb;
 }
-
+.text-white{
+  color: white;
+}
+.bgnav-color{
+  background-color: #0c0ceab0;
+}
+.bg-color{
+  background-color: #0088ffd1;
+}
+#sticky-footer {
+  flex-shrink: none;
+}
+.bodyheigth{
+  height: 500px;
+}
+.t-18{
+  font-size: 17pt;
+}
+.t-medium{
+  font-weight: 700;
+}
+.btn-yellow{
+  background-color: #ffe203;
+  border: #282c34;
+  color: #282c34;
+  height: 50px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
