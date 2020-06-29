@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb3c4823-2713-4209-b276-d37995f0d59e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/ressources/quizz.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ressources/quizz.py" afterDir="false" />
-    </list>
+    <list default="true" id="bb3c4823-2713-4209-b276-d37995f0d59e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,6 +121,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1593115077484" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1593432852743">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593432852743" />
     <state width="672" height="179" key="GridCell.Tab.0.bottom" timestamp="1593371022414">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
