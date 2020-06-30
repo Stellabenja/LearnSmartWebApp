@@ -14,7 +14,7 @@ class Home extends Component {
                                 <h2 className="text-white">Learning easily with quizzes </h2>
                             </div>
                             <div className="col-lg-12 mt-5">
-                            <Link to="/signup"><button className="btn btn-yellow t-medium" >create a FREE Account</button></Link>
+                            <Link to="/signup"><button className="btn btn-yellow t-medium text-darkblue" >create a FREE Account</button></Link>
                             
                             </div>
                         </div>
