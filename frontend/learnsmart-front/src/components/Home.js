@@ -8,13 +8,13 @@ class Home extends Component {
             <Router>
                 <div className="Home" class="bg-color bodyheigth">
                                 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 mt-5">
-                                <h2 class="text-white">Learning easily with quizzes </h2>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 mt-5">
+                                <h2 className="text-white">Learning easily with quizzes </h2>
                             </div>
-                            <div class="col-lg-12 mt-5">
-                            <Link to="/signup"><button class="btn btn-yellow t-medium" >create a FREE Account</button></Link>
+                            <div className="col-lg-12 mt-5">
+                            <Link to="/signup"><button className="btn btn-yellow t-medium" >create a FREE Account</button></Link>
                             
                             </div>
                         </div>
