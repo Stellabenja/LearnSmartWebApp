@@ -6,7 +6,9 @@ from flask_restful import Api
 from backend.database.db import initialize_db
 from backend.ressources.routes import initialize_routes
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 app = Flask(__name__)
+cors = CORS(app)
 app.config.from_envvar('ENV_FILE_LOCATION')
 api = Api(app)
 jwt = JWTManager(app)
