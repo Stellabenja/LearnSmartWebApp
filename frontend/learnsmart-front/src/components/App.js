@@ -10,6 +10,7 @@ import Signup from "./Signup.js"
 import Topics from './Topics';
 import AddTopic from './AddTopic';
 import AddQuiz from './AddQuiz';
+import Quiz from './Quiz';
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/addQuiz">
             <AddQuiz/>
+          </Route>
+          <Route path="/quiz">
+            <Quiz/>
           </Route>
         </Switch> 
       </Router>

@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import axios from 'axios';
-export default class Topics extends Component{
+export default class Quiz extends Component{
     constructor(props){
         super(props);
-        this.state = { topicsCollection: [] };
+        this.state = { quizCollection: [] };
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/topics')
+        axios.get('http://localhost:5000/api/quiz')
             .then(res => {
-                this.setState({ topicsCollection: res.data });
+                this.setState({ quizCollection: res.data });
             })
             .catch(function (error) {
                 console.log(error);
             })
     }
-    dataButton() {
-        return this.state.topicsCollection.map((data, i) => {
-            return <div className="col-6 col-md-6 mt-4" key={i}>
-                     <button className="btn btn-yellow t-medium text-darkblue btn-topic"> {data.name} </button>
+    dataQuiz() {
+        return this.state.quizCollection.map((data, i) => {
+            return <div className="col-6 col-md-12 mt-4" key={i}>
+                     <button className="btn btn-yellow t-medium text-darkblue"> {data.text} </button>
                    </div>
         });
     }
@@ -25,7 +25,7 @@ export default class Topics extends Component{
         return(
             <div className="container">
                 <div className="row mt-5">
-                {this.dataButton()}
+                {this.dataQuiz()}
                 </div>
             </div>
         )
