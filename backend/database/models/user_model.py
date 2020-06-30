@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from LearnSmart.backend.database.db import db
+from backend.database.db import db
 from wtforms.fields.html5 import DateField
 
 

@@ -1,4 +1,4 @@
-from LearnSmart.backend.database.db import db
+from backend.database.db import db
 
 
 class Topic(db.Document):
