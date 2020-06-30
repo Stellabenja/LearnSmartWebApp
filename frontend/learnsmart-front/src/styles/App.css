@@ -48,10 +48,17 @@
 .t-medium{
   font-weight: 700;
 }
+.text-darkblue{
+  color: #0c2340;
+}
+.btn-topic{
+  width: 200px;
+  border-color: #0c2340;
+  border-width: 1rem;
+}
 .btn-yellow{
   background-color: #ffe203;
   border: #282c34;
-  color: #282c34;
   height: 50px;
 }
 @keyframes App-logo-spin {
