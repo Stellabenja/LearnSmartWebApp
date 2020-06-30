@@ -7,6 +7,9 @@ import Home from './Home'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./Login.js";
 import Signup from "./Signup.js"
+import Topics from './Topics';
+import AddTopic from './AddTopic';
+import AddQuiz from './AddQuiz';
 function App() {
   return (
     <div className="App">
@@ -22,6 +25,15 @@ function App() {
           </Route>
           <Route path="/signup">
           <Signup/>
+          </Route>
+          <Route path="/topics">
+            <Topics/>
+          </Route>
+          <Route path="/addTopic">
+            <AddTopic/>
+          </Route>
+          <Route path="/addQuiz">
+            <AddQuiz/>
           </Route>
         </Switch> 
       </Router>
