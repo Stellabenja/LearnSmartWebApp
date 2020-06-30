@@ -19,7 +19,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb3c4823-2713-4209-b276-d37995f0d59e" name="Default Changelist" comment="" />
+    <list default="true" id="bb3c4823-2713-4209-b276-d37995f0d59e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/AddQuiz.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/AddTopic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/Quiz.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/Signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/Topics.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/styles/Auth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/shared/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/shared/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/shared/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/shared/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/styles/App.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
