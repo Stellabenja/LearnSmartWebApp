@@ -6,13 +6,22 @@ export default class Quiz extends Component{
         this.state = { quizCollection: [] };
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/quiz')
-            .then(res => {
-                this.setState({ quizCollection: res.data });
-            })
-            .catch(function (error) {
+        const { match: { params } } = this.props;
+        if(this.props){
+             console.log(params.topic_name)
+            try{
+                axios.get(`http://localhost:5000/api/quizbytopic/${params.topic_name}`)
+                .then(res => {
+                    this.setState({ quizCollection: res.data });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+            }catch(error){
                 console.log(error);
-            })
+            }
+        }
+       
     }
     dataQuiz() {
         return this.state.quizCollection.map((data, i) => {
