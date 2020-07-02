@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 export default class Topics extends Component{
     constructor(props){
         super(props);
@@ -17,7 +18,7 @@ export default class Topics extends Component{
     dataButton() {
         return this.state.topicsCollection.map((data, i) => {
             return <div className="col-6 col-md-6 mt-4" key={i}>
-                     <button className="btn btn-yellow t-medium text-darkblue btn-topic"> {data.name} </button>
+                    <Link to={`/quiz/${data.name}`}> <button className="btn btn-yellow t-medium text-darkblue btn-topic"> {data.name} </button></Link>
                    </div>
         });
     }
