@@ -10,11 +10,12 @@ constructor(props){
     }
 }
     componentDidMount() {
-        const headers={headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }}
         axios.post('http://localhost:5000/api/auth/logout',
-        headers
+        {
+            headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        }
         )
             .then(res => {
                 console.log(res.data)
