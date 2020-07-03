@@ -51,7 +51,7 @@ export default class AddTopic extends Component{
         };
         axios.post('http://localhost:5000/api/quiz', quizObject,
         { headers: {
-            'Authorization': localStorage.getItem('token')
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
         })
         .then((res) => {

@@ -13,7 +13,7 @@ export default class Quiz extends Component{
                 axios.get(`http://localhost:5000/api/quizbytopic/${params.topic_name}`,
                 {
                     headers: {
-                        'Authorization': localStorage.getItem('token')
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
                       }
                 }
                 )

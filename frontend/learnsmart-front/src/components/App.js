@@ -11,6 +11,7 @@ import Topics from './Topics';
 import AddTopic from './AddTopic';
 import AddQuiz from './AddQuiz';
 import Quiz from './Quiz';
+import Logout from './Logout';
 function App() {
   return (
     <div className="App">
@@ -36,7 +37,7 @@ function App() {
             <AddQuiz/>
           </Route>
           <Route path="/quiz/:topic_name" component={Quiz}/>
-            
+          <Route path="/logout" component={Logout}/>
         </Switch> 
       </Router>
      

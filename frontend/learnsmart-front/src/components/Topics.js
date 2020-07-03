@@ -7,10 +7,11 @@ export default class Topics extends Component{
         this.state = { topicsCollection: [] };
     }
     componentDidMount() {
+       // headers = { "Accept": "application/json", "Content-Type": "application/json", "Authorization": "Bearer {}".format(token)}
         axios.get('http://localhost:5000/api/topics',
         {
             headers: {
-            'Authorization': localStorage.getItem('token')
+            'Authorization':`Bearer ${localStorage.getItem('token')}` 
           }
         }
         )
