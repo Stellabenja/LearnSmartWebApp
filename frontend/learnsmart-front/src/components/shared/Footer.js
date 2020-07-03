@@ -5,7 +5,7 @@ export default class Footer extends Component {
         return (
              <footer className="footer fixed-bottom">
                 <div className="container">
-                    <span className="text-muted">Place sticky footer content here.</span>
+                    <span className="text-muted">LearnSmart</span>
                 </div>
             </footer>
         )

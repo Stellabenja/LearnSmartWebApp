@@ -34,6 +34,7 @@ export default class SignUp extends Component {
         };
         axios.post('http://localhost:5000/api/auth/signup', userObject)
         .then((res) => {
+            this.props.updateUserData(this.state.username,this.state.email)
             console.log(res.data)
         }).catch((error) => {
             console.log(error)
@@ -64,7 +65,7 @@ export default class SignUp extends Component {
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="#">sign in?</a>
+                    Already registered <a href="/sign-in">sign in?</a>
                 </p>
             </form>
             </div>
