@@ -1,13 +1,14 @@
 from flask import request
 from flask_jwt_extended import create_access_token, get_raw_jwt, jwt_required
-
-from backend.app import blacklist
 from backend.database.models.user_model import User
 from flask_restful import Resource
 import datetime
 
 
 # Endpoint creates a user document with email and password received from the JSON object sent by the user.
+from backend.ressources.variableTobeGlobal import blacklist
+
+
 class SignupApi(Resource):
     def post(self):
         body = request.get_json()
@@ -36,6 +37,6 @@ class LogoutApi(Resource):
         jti = get_raw_jwt()['jti']
         try:
             blacklist.add(jti)
-            return {"msg": "Successfully logged out"}, 200
+            return {"msg": blacklist}, 200
         except:
             return {'message': 'Something went wrong'}, 500

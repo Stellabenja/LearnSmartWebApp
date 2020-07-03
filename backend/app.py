@@ -1,5 +1,7 @@
 import os
 
+from backend.ressources.variableTobeGlobal import blacklist
+
 os.environ['ENV_FILE_LOCATION'] = './.env'
 from flask_bcrypt import Bcrypt
 from flask import Flask, Response, request
@@ -20,7 +22,7 @@ bcrypt = Bcrypt(app)
 app.config['MONGODB_SETTINGS'] = {
     'host': 'mongodb://localhost/quizz-db'
 }
-blacklist = set()
+
 initialize_db(app)
 # Let's call this function witch initializes the routes
 initialize_routes(api)
