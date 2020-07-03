@@ -30,7 +30,8 @@ export default class Login extends Component {
         };
         axios.post('http://localhost:5000/api/auth/login', userObject)
         .then((res) => {
-            console.log(res.data);
+            console.log(res.data.access_token);
+            localStorage.setItem('token',res.data.access_token)
             // this.setState({ redirect: true })
         }).catch((error) => {
             console.log(error)
