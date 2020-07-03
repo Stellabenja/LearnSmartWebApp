@@ -7,7 +7,13 @@ export default class Topics extends Component{
         this.state = { topicsCollection: [] };
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/topics')
+        axios.get('http://localhost:5000/api/topics',
+        {
+            headers: {
+            'Authorization': localStorage.getItem('token')
+          }
+        }
+        )
             .then(res => {
                 this.setState({ topicsCollection: res.data });
             })

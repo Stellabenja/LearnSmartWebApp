@@ -49,7 +49,11 @@ export default class AddTopic extends Component{
             status:this.state.status
 
         };
-        axios.post('http://localhost:5000/api/quiz', quizObject)
+        axios.post('http://localhost:5000/api/quiz', quizObject,
+        { headers: {
+            'Authorization': localStorage.getItem('token')
+          }
+        })
         .then((res) => {
             console.log(res.data)
         }).catch((error) => {

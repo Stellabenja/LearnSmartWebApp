@@ -10,7 +10,13 @@ export default class Quiz extends Component{
         if(this.props){
              console.log(params.topic_name)
             try{
-                axios.get(`http://localhost:5000/api/quizbytopic/${params.topic_name}`)
+                axios.get(`http://localhost:5000/api/quizbytopic/${params.topic_name}`,
+                {
+                    headers: {
+                        'Authorization': localStorage.getItem('token')
+                      }
+                }
+                )
                 .then(res => {
                     this.setState({ quizCollection: res.data });
                 })
