@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useHistory,Redirect } from "react-router"
 import '../styles/Auth.css';
 import axios from 'axios';
 export default class Login extends Component {
@@ -10,7 +11,8 @@ export default class Login extends Component {
 
         this.state = {
             email: '',
-            password:''
+            password:'',
+            redirect: false
         }
     }
     onChangeEmail(e) {
@@ -28,7 +30,9 @@ export default class Login extends Component {
         };
         axios.post('http://localhost:5000/api/auth/login', userObject)
         .then((res) => {
-            console.log(res.data)
+            console.log(res.data.access_token);
+            localStorage.setItem('token',res.data.access_token)
+            // this.setState({ redirect: true })
         }).catch((error) => {
             console.log(error)
         });
@@ -36,6 +40,11 @@ export default class Login extends Component {
     this.setState({ email: '', password:''})
     }
     render() {
+        /* const { redirect } = this.state;
+
+     if (redirect) {
+       return <Redirect to='/topics'/>;
+     } */
         return (
     <div className="auth-wrapper">
         <div className="auth-inner">

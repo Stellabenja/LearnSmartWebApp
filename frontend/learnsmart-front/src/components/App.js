@@ -4,22 +4,22 @@ import '../styles/App.css';
 import Header from './shared/Header';
 import Footer from './shared/Footer';
 import Home from './Home'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, withRouter } from "react-router-dom";
 import Login from "./Login.js";
 import Signup from "./Signup.js"
 import Topics from './Topics';
 import AddTopic from './AddTopic';
 import AddQuiz from './AddQuiz';
 import Quiz from './Quiz';
+import Logout from './Logout';
 function App() {
   return (
     <div className="App">
-      <Header/>
+      
       <Router>
+      <Header/>
         <Switch>
-          <Route exact path="/">
-            <Home/>
-          </Route>
+        <Route exact path="/" component={withRouter(Home)} />
           <Route path="/sign-in">
             <Login/>
             
@@ -36,9 +36,8 @@ function App() {
           <Route path="/addQuiz">
             <AddQuiz/>
           </Route>
-          <Route path="/quiz">
-            <Quiz/>
-          </Route>
+          <Route path="/quiz/:topic_name" component={Quiz}/>
+          <Route path="/logout" component={Logout}/>
         </Switch> 
       </Router>
      

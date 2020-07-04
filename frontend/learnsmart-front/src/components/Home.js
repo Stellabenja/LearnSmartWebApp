@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, withRouter} from "react-router-dom";
 import '../styles/App.css';
 class Home extends Component {
  
     render() {
         return (
-            <Router>
-                <div className="Home" class="bg-color bodyheigth">
+            
+                <div  className="bg-color bodyheigth">
                                 
                     <div className="container">
                         <div className="row">
@@ -20,10 +20,10 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-            </Router>
+            
            
         );
     }
 }
  
-export default Home;
+export default withRouter(Home);
