@@ -27,3 +27,18 @@
     line-height: 1;
     padding-bottom: 20px;
   }
+  .asideComponents {
+    display:flex; 
+    flex-direction:row;
+    margin: 10px;
+    padding: 10px;
+  }
+  .profil {
+    margin-bottom: 50px;
+  }
+  .btn-updateUserData {
+    margin-top: 20px;
+  }
+  .btn-submit {
+    padding-left: 10px;
+  }

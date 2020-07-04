@@ -9,9 +9,22 @@ class UserApi(Resource):
     def post(self):
         body = request.get_json()
         print(body)
-        user = User.objects().get(id=body.get('userId'))
+        user = User.objects().get(id=body.get('userID'))
         if user is None:
-            return {'error': 'did not work'}, 401
-        userData = {'username': user.username, 'email': user.email}
-        return {'userData': userData}, 200
+            return {'error': 'Your are not registered yet, please register and try again'}, 401
+        userdata = {'username': user.username, 'email': user.email}
+        return {'userData': userdata}, 200
 #@jwt_required to restrict unauthorised users to enter our app
+
+
+class ChangeUserDataApi(Resource):
+    def post(self):
+        body = request.get_json()
+        print(body)
+        user = User.objects().get(id=body.get('userID'))
+        if user is None:
+            return {'error': 'Your are not registered yet, please register and try again'}, 401
+        user.change_username(body.get('userName'))
+        user.change_email(body.get('email'))
+        userdata = {'username': user.username, 'email': user.email}
+        return {'userData': userdata}, 200

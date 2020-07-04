@@ -30,3 +30,20 @@ class LoginApi(Resource):
         expires = datetime.timedelta(days=7)
         access_token = create_access_token(identity=str(user.id), expires_delta=expires)
         return {'id': id, 'access_token': access_token}, 200
+
+
+class ChangePasswordApi(Resource):
+    def post(self):
+        body = request.get_json()
+        print(body)
+        user = User.objects().get(id=body.get('userID'))
+        if user is None:
+            return {'error': 'did not work'}, 401
+        passwordIsEqual = user.check_password(body.get('actualPassWord'))
+        if not passwordIsEqual:
+            return {'error': 'Actual password is wrong'}, 401
+        authorized = user.change_password(body.get('newPassword'))
+        user.save()
+        if not authorized:
+            return {'error': 'Password change was not successfull'}, 401
+        return {'success': 'Password successfully changed'}, 200

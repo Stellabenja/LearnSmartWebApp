@@ -14,3 +14,21 @@ class User(db.Document):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+    def change_password(self, password):
+        print(password)
+        self.password = generate_password_hash(password)
+        print(self.password)
+        return check_password_hash(self.password, password)
+
+    def change_username(self, username):
+        print(username)
+        self.username = username
+        print(self.username)
+
+    def change_email(self, email):
+        print(email)
+        self.email = email
+        print(self.email)
+
+

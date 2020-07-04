@@ -1,8 +1,9 @@
 
-from backend.ressources.authentification import SignupApi, LoginApi
+from backend.ressources.authentification import SignupApi, LoginApi, ChangePasswordApi
 from backend.ressources.quizz import QuizApi
 from backend.ressources.topics import TopicsApi
 from backend.ressources.user import UserApi
+
 
 
 
@@ -13,3 +14,4 @@ def initialize_routes(api):
     api.add_resource(LoginApi, '/api/auth/login')
     api.add_resource(QuizApi, '/api/quiz')
     api.add_resource(UserApi, '/api/userData')
+    api.add_resource(ChangePasswordApi, '/api/auth/changePassword')

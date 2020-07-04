@@ -8,7 +8,7 @@ export default class Header extends Component{
 
     render(){
         var isLoggedIn = localStorage.getItem( 'isLoggedIn' ) || 1;
-        console.log('hi',isLoggedIn);
+        console.log(isLoggedIn)
         return ( 
             <nav className="navbar navbar-expand-lg navbar-light bgnav-color " >
                 <a className="navbar-brand text-white t-24"  href="#">Learnsmart</a>
@@ -22,19 +22,19 @@ export default class Header extends Component{
                             <Link to="/" className="nav-link text-white t-16" >Home</Link>
                             
                         </li>
-                        {isLoggedIn !==1 || this.props.isLoggedIn && 
+                        {isLoggedIn !==1 &&
                             <li className="nav-item float-right">
                                 <Link to="/logout" className="nav-link text-white t-20" id="loginLink">Logout</Link>
                             </li>
                         }
                         
-                        {isLoggedIn ==1 || this.props.isLoggedIn && 
+                        {isLoggedIn ===1 && 
                             <li className="nav-item float-right">
                                 <Link to="/sign-in" className="nav-link text-white t-20" id="loginLink">Login</Link>
                             </li>
                         }
 
-                        {isLoggedIn !==1 || this.props.isLoggedIn && 
+                        {isLoggedIn !==1 &&
                             <li className="nav-item float-right">
                                 <Link to="/profil" className="nav-link text-white t-20" id="loginLink">Profil</Link>
                             </li>
