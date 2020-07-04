@@ -12,6 +12,7 @@ import AddTopic from './AddTopic';
 import AddQuiz from './AddQuiz';
 import Quiz from './Quiz';
 import Logout from './Logout';
+import SingleChoiceQuiz from './SingleChoiceQuiz';
 function App() {
   return (
     <div className="App">
@@ -37,6 +38,7 @@ function App() {
             <AddQuiz/>
           </Route>
           <Route path="/quiz/:topic_name" component={Quiz}/>
+          <Route path="/quizbox/:topic_name" component={SingleChoiceQuiz}/>
           <Route path="/logout" component={Logout}/>
         </Switch> 
       </Router>
