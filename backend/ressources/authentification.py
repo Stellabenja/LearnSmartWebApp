@@ -33,10 +33,10 @@ class LoginApi(Resource):
 
 class LogoutApi(Resource):
     @jwt_required
-    def post(self):
+    def get(self):
         jti = get_raw_jwt()['jti']
         try:
             blacklist.add(jti)
-            return {"msg": blacklist}, 200
+            return {"msg": "blacklist"}, 200
         except:
             return {'message': 'Something went wrong'}, 500

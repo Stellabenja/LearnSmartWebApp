@@ -10,10 +10,10 @@ constructor(props){
     }
 }
     componentDidMount() {
-        axios.post('http://localhost:5000/api/auth/logout',
+        axios.get('http://localhost:5000/api/auth/logout',
         {
             headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Authorization':`Bearer ${localStorage.getItem('token')}`
           }
         }
         )
@@ -28,7 +28,7 @@ constructor(props){
     render() {
         const { redirect } = this.state;
         if (redirect) {
-        return <Redirect to='/sign-in'/>;
+        //return <Redirect to='/sign-in'/>;
         }
         return(<div>LOGOUT</div>) 
     }
