@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { useHistory,Redirect } from "react-router"
 import '../styles/Auth.css';
 import axios from 'axios';
 import { Route, Redirect, ReactDOM } from 'react-router-dom';

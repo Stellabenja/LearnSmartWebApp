@@ -30,7 +30,7 @@ class LoginApi(Resource):
             return {'error': 'Email or password invalid'}, 401
         expires = datetime.timedelta(days=2)
         access_token = create_access_token(identity=str(user.id), expires_delta=expires)
-       return {'id': id, 'access_token': access_token}, 200
+        return {'id': id, 'access_token': access_token}, 200
 
 
 class LogoutApi(Resource):
