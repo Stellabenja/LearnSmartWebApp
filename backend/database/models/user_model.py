@@ -1,3 +1,4 @@
+from mongoengine import ReferenceField
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from backend.database.db import db
@@ -14,3 +15,9 @@ class User(db.Document):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+
+class Userstatus(db.Document):
+    relatedTopic = db.StringField(required=True)
+    user = ReferenceField(User)
+    score = db.IntField(required=True)

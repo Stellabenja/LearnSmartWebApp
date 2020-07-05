@@ -12,6 +12,8 @@ import AddTopic from './AddTopic';
 import AddQuiz from './AddQuiz';
 import Quiz from './Quiz';
 import Logout from './Logout';
+import SingleChoiceQuiz from './SingleChoiceQuiz';
+import Result from './Result';
 function App() {
   return (
     <div className="App">
@@ -37,6 +39,7 @@ function App() {
             <AddQuiz/>
           </Route>
           <Route path="/quiz/:topic_name" component={Quiz}/>
+          <Route path="/quizbox/:topic_name" component={SingleChoiceQuiz}/>
           <Route path="/logout" component={Logout}/>
         </Switch> 
       </Router>
@@ -45,5 +48,36 @@ function App() {
     </div>
   );
 }
-
 export default App;
+/*export default class Logout extends Component {
+constructor(props){
+    super(props)
+    this.state = {
+        redirect: false
+    }
+}
+    componentDidMount() {
+        axios.get('http://localhost:5000/api/auth/logout',
+        {
+            headers: {
+            'Authorization':`Bearer ${localStorage.getItem('token')}`
+          }
+        }
+        )
+            .then(res => {
+                console.log(res.data)
+                 this.setState({ redirect: true })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+    render() {
+        const { redirect } = this.state;
+        if (redirect) {
+        //return <Redirect to='/sign-in'/>;
+        }
+        return(<div>LOGOUT</div>) 
+    }
+} */
+
