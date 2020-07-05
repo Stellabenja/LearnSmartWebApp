@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, withRouter} from "react-router-dom";
 import '../styles/App.css';
 class Home extends Component {
- 
+
     render() {
+        
         return (
             
                 <div  className="bg-color bodyheigth">
@@ -21,9 +22,8 @@ class Home extends Component {
                     </div>
                 </div>
             
-           
         );
     }
 }
  
-export default withRouter(Home);
+export default Home;

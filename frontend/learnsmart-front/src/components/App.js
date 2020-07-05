@@ -1,4 +1,4 @@
- import React from 'react';
+import React , { Component } from 'react';
 // import logo from './logo.svg';
 import '../styles/App.css';
 import Header from './shared/Header';
@@ -11,21 +11,68 @@ import Topics from './Topics';
 import AddTopic from './AddTopic';
 import AddQuiz from './AddQuiz';
 import Quiz from './Quiz';
+import Profil from './Profil';
 import Logout from './Logout';
 import SingleChoiceQuiz from './SingleChoiceQuiz';
-import Result from './Result';
-function App() {
+
+export default class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+        isLoggedIn: false,
+        userName:'',
+        email:'',
+        userID:'',
+    }
+    this.changeStatus = this.changeStatus.bind(this);
+    this.saveUserId = this.saveUserId.bind(this);
+    this.addUserData = this.addUserData.bind(this);
+  }
+
+  changeStatus(isLoggedIn, userID) {
+      this.setState({
+        isLoggedIn:isLoggedIn,
+        userID:userID,
+      });
+
+    localStorage.setItem( 'isLoggedIn', isLoggedIn );
+    localStorage.setItem( 'userID', userID );
+  }
+  addUserData(userName, email) {
+    this.setState({
+      userName:userName,
+      email:email,
+    });
+    localStorage.setItem( 'userName', userName );
+    localStorage.setItem( 'email', email );
+  }  
+  saveUserId(userID) {
+    this.setState({
+      userID:userID,
+    });
+  }
+  render(){
   return (
     <div className="App">
       
       <Router>
-      <Header/>
+      <Header isLoggedIn={this.state.isLoggedIn}/>
         <Switch>
-        <Route exact path="/" component={withRouter(Home)} />
-          <Route path="/sign-in">
-            <Login/>
-            
-          </Route>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/sign-in">
+              <Login changeStatus={this.changeStatus} 
+                     isLoggedIn={this.state.isLoggedIn}/>
+        </Route> 
+        <Route exact path="/logout">
+          <Logout />
+        </Route>
+        <Route exact path="/profil">
+          <Profil userID={this.state.userID} userName={this.state.userName} 
+                  email={this.state.email}
+                  isLoggedIn={this.state.isLoggedIn}
+                  updateUserData={this.addUserData}/>
+        </Route> 
           <Route path="/signup">
           <Signup/>
           </Route>
@@ -47,8 +94,8 @@ function App() {
       <Footer/>
     </div>
   );
-}
-export default App;
+}}
+
 /*export default class Logout extends Component {
 constructor(props){
     super(props)
