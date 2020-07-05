@@ -13,6 +13,7 @@ import AddQuiz from './AddQuiz';
 import Quiz from './Quiz';
 import Logout from './Logout';
 import SingleChoiceQuiz from './SingleChoiceQuiz';
+import Result from './Result';
 function App() {
   return (
     <div className="App">
@@ -47,5 +48,20 @@ function App() {
     </div>
   );
 }
-
+/* componentDidMount() {
+  axios.get('http://localhost:5000/api/auth/logout',
+  {
+      headers: {
+      'Authorization':`Bearer ${localStorage.getItem('token')}`
+    }
+  }
+  )
+      .then(res => {
+          console.log(res.data)
+           this.setState({ redirect: true })
+      })
+      .catch(function (error) {
+          console.log(error);
+      })
+} */
 export default App;
