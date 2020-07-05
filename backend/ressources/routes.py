@@ -1,5 +1,5 @@
 from backend.ressources.authentification import SignupApi, LoginApi, LogoutApi
-from backend.ressources.quizz import QuizApi
+from backend.ressources.quizz import QuizApi, SinglechoiceApi
 from backend.ressources.topics import TopicsApi
 from backend.ressources.quizz import QuizByTopicApi
 
@@ -12,3 +12,5 @@ def initialize_routes(api):
     api.add_resource(QuizApi, '/api/quiz')
     api.add_resource(QuizByTopicApi, '/api/quizbytopic/<topic_name>')
     api.add_resource(LogoutApi, '/api/auth/logout')
+    #api.add_resource(SinglechoiceApi, '/api/singlechoice')
+    api.add_resource(SinglechoiceApi, '/api/singlechoice/<topic_name>')
