@@ -8,6 +8,7 @@ export default class Profil extends Component {
   constructor(props){
     super(props)
     this.onSubmitPasswordForm = this.onSubmitPasswordForm.bind(this);
+    this.onSubmitUserDataForm = this.onSubmitUserDataForm.bind(this);
     this.onChangeNewPassword = this.onChangeNewPassword.bind(this);
     this.onChangeActualPassword = this.onChangeActualPassword.bind(this);
     this.onChangeUserName = this.onChangeUserName.bind(this);
@@ -25,12 +26,15 @@ export default class Profil extends Component {
     }
   }
   componentDidMount () {
-    var check = localStorage.getItem( 'userName' ) || 1;
-    if (check !== 1) {
-      
-    } else {
+    // var check = localStorage.getItem( 'userName' ) || 1;
+    
+    var userID = localStorage.getItem( 'userID' ) || 1;
+    if((localStorage.getItem( 'userID' ) || 1) ===1) {
+      userID = this.props.userID
+    }
+    
       const userObject = {
-        userID: this.props.userID,
+        userID: userID,
       };
       axios.post('http://localhost:5000/api/userData', userObject)
       .then((res) => {
@@ -42,7 +46,7 @@ export default class Profil extends Component {
       }).catch((error) => {
           console.log(error)
       });
-    }
+    
     
   }
   onChangeNewPassword(e) {
@@ -128,7 +132,7 @@ export default class Profil extends Component {
         userName: this.state.userName,
         email:this.state.email
     };
-    axios.post('http://localhost:5000/api/auth/changeUserData', userObject)
+    axios.post('http://localhost:5000/api/changeUserData', userObject)
     .then((res) => {
         if (res.status === 200) {
           this.setState({ dataChanged: true });
@@ -140,13 +144,14 @@ export default class Profil extends Component {
         console.log(error)
     });
 
-    
+    console.log(this.state.dataChanged)
   }
 
   render() {
-    if (this.props.dataChanged) {
+    if (this.state.dataChanged) {
       localStorage.removeItem('userName');
       localStorage.removeItem('email');
+      console.log(localStorage.getItem( 'userName' ));
       return (
         window.location.reload()
       );
@@ -155,6 +160,7 @@ export default class Profil extends Component {
       var isLoggedIn = localStorage.getItem( 'isLoggedIn' ) || 1;
       var userName = localStorage.getItem( 'userName' ) || 1;
       var email = localStorage.getItem( 'email' ) || 1;
+      console.log(localStorage.getItem( 'userName' ));
           return (
             <div className="auth-wrapper">
               <div className="auth-inner profil">

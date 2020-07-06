@@ -26,5 +26,6 @@ class ChangeUserDataApi(Resource):
             return {'error': 'Your are not registered yet, please register and try again'}, 401
         user.change_username(body.get('userName'))
         user.change_email(body.get('email'))
+        user.save()
         userdata = {'username': user.username, 'email': user.email}
         return {'userData': userdata}, 200
