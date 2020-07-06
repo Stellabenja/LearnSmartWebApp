@@ -29,23 +29,32 @@ export default class Profil extends Component {
     // var check = localStorage.getItem( 'userName' ) || 1;
     
     var userID = localStorage.getItem( 'userID' ) || 1;
-    if((localStorage.getItem( 'userID' ) || 1) ===1) {
-      userID = this.props.userID
-    }
-    
+    var userName = localStorage.getItem( 'userName' ) || 1;
+    console.log(userID);
+    if(userName===1) {
+      if(userID ===1) {
+        userID = this.props.userID
+      }
       const userObject = {
         userID: userID,
       };
+     
       axios.post('http://localhost:5000/api/userData', userObject)
       .then((res) => {
           if (res.status === 200) {
-              this.props.updateUserData(res.data.userData.username, res.data.userData.email)
+              this.props.updateUserData(res.data.userData.username, res.data.userData.email);
+              console.log(userObject)
             };
-          console.log(res)
+          console.log(res);
+          console.log(userObject)
           
       }).catch((error) => {
           console.log(error)
       });
+    }
+    console.log(userID);
+    console.log(this.props.userID);
+      
     
     
   }
@@ -175,7 +184,7 @@ export default class Profil extends Component {
 
                               
                   }
-                  {userName===1 && isLoggedIn!==1 &&
+                  {userName===1 &&
                               <div>
                                   <strong>Username: </strong>{this.props.userName}<br></br>
                                   <strong>Email: </strong> {this.props.email}<br></br>

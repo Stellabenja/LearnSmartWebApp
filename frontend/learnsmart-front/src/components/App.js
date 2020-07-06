@@ -24,10 +24,12 @@ export default class App extends Component {
         userName:'',
         email:'',
         userID:'',
+        redirect: false
     }
     this.changeStatus = this.changeStatus.bind(this);
     this.saveUserId = this.saveUserId.bind(this);
     this.addUserData = this.addUserData.bind(this);
+    this.redirectPage = this.redirectPage.bind(this);
   }
 
   changeStatus(isLoggedIn, userID) {
@@ -52,6 +54,11 @@ export default class App extends Component {
       userID:userID,
     });
   }
+  redirectPage(redirect) {
+    this.setState({
+      redirect:redirect,
+    });
+  }
   render(){
   return (
     <div className="App">
@@ -59,13 +66,16 @@ export default class App extends Component {
       <Router>
       <Header isLoggedIn={this.state.isLoggedIn}/>
         <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/">
+          <Home isLoggedIn={this.state.isLoggedIn}/>
+        </Route>
         <Route exact path="/sign-in">
               <Login changeStatus={this.changeStatus} 
                      isLoggedIn={this.state.isLoggedIn}/>
         </Route> 
         <Route exact path="/logout">
-          <Logout />
+          <Logout isLoggedIn={this.state.isLoggedIn} redirect={this.state.redirect}
+                  redirectPage={this.redirectPage} changeStatus={this.changeStatus}/>
         </Route>
         <Route exact path="/profil">
           <Profil userID={this.state.userID} userName={this.state.userName} 

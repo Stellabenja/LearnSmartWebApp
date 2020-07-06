@@ -2,7 +2,7 @@ from backend.ressources.authentification import SignupApi, LoginApi, LogoutApi,C
 from backend.ressources.quizz import QuizApi, SinglechoiceApi
 from backend.ressources.topics import TopicsApi
 from backend.ressources.user import UserApi, ChangeUserDataApi
-from backend.ressources.quizz import QuizByTopicApigit
+from backend.ressources.quizz import QuizByTopicApi
 
 
 
