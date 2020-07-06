@@ -4,7 +4,7 @@ import '../styles/App.css';
 import Header from './shared/Header';
 import Footer from './shared/Footer';
 import Home from './Home'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, withRouter } from "react-router-dom";
 import Login from "./Login.js";
 import Signup from "./Signup.js"
 import Topics from './Topics';
@@ -13,9 +13,9 @@ import AddQuiz from './AddQuiz';
 import Quiz from './Quiz';
 import Profil from './Profil';
 import Logout from './Logout';
+import SingleChoiceQuiz from './SingleChoiceQuiz';
+
 export default class App extends Component {
-
-
 
   constructor(props){
     super(props)
@@ -53,52 +53,78 @@ export default class App extends Component {
     });
   }
   render(){
-    return (
-      <div className="App">
-        
-        <Router>
-        <Header isLoggedIn={this.state.isLoggedIn}/>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/sign-in">
+  return (
+    <div className="App">
+      
+      <Router>
+      <Header isLoggedIn={this.state.isLoggedIn}/>
+        <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/sign-in">
               <Login changeStatus={this.changeStatus} 
-                     isLoggedIn={this.state.isLoggedIn}
-              />
-            </Route> 
-            <Route exact path="/logout">
-              <Logout />
-            </Route>
-            <Route exact path="/profil">
-              <Profil userID={this.state.userID} userName={this.state.userName} 
-                      email={this.state.email}
-                      isLoggedIn={this.state.isLoggedIn}
-                      updateUserData={this.addUserData}
-              />
-            </Route> 
-            <Route path="/signup">
-            <Signup />
-            </Route>
-            <Route path="/topics">
-              <Topics/>
-            </Route>
-            <Route path="/addTopic">
-              <AddTopic/>
-            </Route>
-            <Route path="/addQuiz">
-              <AddQuiz/>
-            </Route>
-            <Route path="/quiz">
-              <Quiz/>
-            </Route>
-          </Switch> 
-        </Router>
-       
-        <Footer/>
-      </div>
-    );
-  }
-  }
+                     isLoggedIn={this.state.isLoggedIn}/>
+        </Route> 
+        <Route exact path="/logout">
+          <Logout />
+        </Route>
+        <Route exact path="/profil">
+          <Profil userID={this.state.userID} userName={this.state.userName} 
+                  email={this.state.email}
+                  isLoggedIn={this.state.isLoggedIn}
+                  updateUserData={this.addUserData}/>
+        </Route> 
+          <Route path="/signup">
+          <Signup/>
+          </Route>
+          <Route path="/topics">
+            <Topics/>
+          </Route>
+          <Route path="/addTopic">
+            <AddTopic/>
+          </Route>
+          <Route path="/addQuiz">
+            <AddQuiz/>
+          </Route>
+          <Route path="/quiz/:topic_name" component={Quiz}/>
+          <Route path="/quizbox/:topic_name" component={SingleChoiceQuiz}/>
+          <Route path="/logout" component={Logout}/>
+        </Switch> 
+      </Router>
+     
+      <Footer/>
+    </div>
+  );
+}}
 
+/*export default class Logout extends Component {
+constructor(props){
+    super(props)
+    this.state = {
+        redirect: false
+    }
+}
+    componentDidMount() {
+        axios.get('http://localhost:5000/api/auth/logout',
+        {
+            headers: {
+            'Authorization':`Bearer ${localStorage.getItem('token')}`
+          }
+        }
+        )
+            .then(res => {
+                console.log(res.data)
+                 this.setState({ redirect: true })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+    render() {
+        const { redirect } = this.state;
+        if (redirect) {
+        //return <Redirect to='/sign-in'/>;
+        }
+        return(<div>LOGOUT</div>) 
+    }
+} */
 

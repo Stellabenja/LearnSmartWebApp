@@ -17,3 +17,10 @@ class User_quiz(db.Document):
     status = db.BooleanField(default=True)
     related_quiz_id = db.StringField(required=True, unique=True)
     related_topic_id = db.StringField(required=True, unique=True)
+
+
+class Singlechoice(db.Document):
+    topic_name = db.StringField(required=True)
+    question = db.StringField(required=True)
+    assumptions = db.ListField(required=True)
+    answer = db.StringField(required=True)

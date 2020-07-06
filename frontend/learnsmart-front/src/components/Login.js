@@ -13,6 +13,7 @@ export default class Login extends Component {
         this.state = {
             email: '',
             password:'',
+            redirect: false
         }
     }
     onChangeEmail(e) {
@@ -30,6 +31,9 @@ export default class Login extends Component {
         };
         axios.post('http://localhost:5000/api/auth/login', userObject)
         .then((res) => {
+            console.log(res.data.access_token);
+            localStorage.setItem('token',res.data.access_token)
+            // this.setState({ redirect: true })
             if (res.status === 200) {
                 this.props.changeStatus(true, res.data.id)
                 

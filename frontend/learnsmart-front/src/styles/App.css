@@ -61,6 +61,14 @@
   border: #282c34;
   height: 50px;
 }
+.answerBtn{
+  background-color:  #13b12d;
+  border: #282c34;
+  color: white;
+  height: 50px;
+  width: 200px;
+  border-radius: 0.75rem;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

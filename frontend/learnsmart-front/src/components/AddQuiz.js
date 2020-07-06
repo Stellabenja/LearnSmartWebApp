@@ -49,7 +49,11 @@ export default class AddTopic extends Component{
             status:this.state.status
 
         };
-        axios.post('http://localhost:5000/api/quiz', quizObject)
+        axios.post('http://localhost:5000/api/quiz', quizObject,
+        { headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
         .then((res) => {
             console.log(res.data)
         }).catch((error) => {
@@ -67,7 +71,8 @@ export default class AddTopic extends Component{
 
                 <div className="form-group">
                     <label>Topic Name</label>
-                    <select onChange={this.onChangeTopicName} value={this.state.value}>
+                    <select onChange={this.onChangeTopicName} value={this.state.topicName}>
+                    <option value="true">select topic</option>
                         {this.dataTopics()}
                     </select>
                 </div>
@@ -78,7 +83,8 @@ export default class AddTopic extends Component{
                 <div className="form-group">
                     <div className="">
                     <label >choose status</label>
-                    <select onChange={this.onChangeStatus} value={this.state.value}>
+                    <select onChange={this.onChangeStatus} value={this.state.status}>
+                         <option value="true">select status</option>
                         <option value="true">true</option>
                         <option value="false">false</option>
                     </select>
