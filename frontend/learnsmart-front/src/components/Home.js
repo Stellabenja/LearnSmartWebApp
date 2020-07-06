@@ -4,7 +4,7 @@ import '../styles/App.css';
 class Home extends Component {
 
     render() {
-        
+        console.log(localStorage.getItem( 'userName' ), localStorage.getItem( 'userID' ), localStorage.getItem( 'isLoggedIn' ))
         return (
             
                 <div  className="bg-color bodyheigth">

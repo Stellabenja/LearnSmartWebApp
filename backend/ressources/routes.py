@@ -1,8 +1,9 @@
 from backend.ressources.authentification import SignupApi, LoginApi, LogoutApi,ChangePasswordApi
 from backend.ressources.quizz import QuizApi, SinglechoiceApi
 from backend.ressources.topics import TopicsApi
+from backend.ressources.user import UserApi, ChangeUserDataApi
 from backend.ressources.quizz import QuizByTopicApi
-from backend.ressources.user import UserApi
+
 
 
 # define the function to initialize the routes
@@ -17,3 +18,5 @@ def initialize_routes(api):
     api.add_resource(SinglechoiceApi, '/api/singlechoice/<topic_name>')
     api.add_resource(UserApi, '/api/userData')
     api.add_resource(ChangePasswordApi, '/api/auth/changePassword')
+    api.add_resource(ChangeUserDataApi, '/api/changeUserData')
+
