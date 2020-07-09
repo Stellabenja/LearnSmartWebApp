@@ -54,6 +54,29 @@ getQuestions(){
             }
         }
 }
+addScore(){
+	const { match: { params } } = this.props;
+	if(this.props){
+	try{
+		axios.post(`http://localhost:5000/api/score`,{"relatedtopic":params.topic_name,"score":this.state.score},
+		{
+			headers: {
+				'Authorization': `Bearer ${localStorage.getItem('token')}`
+			  }
+		}
+		)
+		.then(res => {
+			console.log(res);
+			
+		})
+		.catch(function (error) {
+			console.log(error);
+		})
+	}catch(error){
+		console.log(error);
+	}
+}
+}
 // componentDidMount function to get question 
 componentDidMount() { 
 	this.getQuestions();
@@ -70,13 +93,15 @@ render() {
 	this.state.questionBank.map((data, i) => <QuizzBox question= 
 	{data.question} options={data.assumptions} key={i} 
 	selected={answer => this.computeAnswer(answer, data.answer,this.state.questionBank.length)}/>)} 
-
+ 
+ { this.state.responses === this.state.questionBank.length && this.addScore()} 
+	
 	 { 
 		this.state.responses === this.state.questionBank.length 
 		? (<Result score={this.state.score} totalQuest={this.state.questionBank.length}
 			playAgain={this.playAgain}/>) 
 		: null
-	} 
+	}  
 
 	</div>) 
 } 
