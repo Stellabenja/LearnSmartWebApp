@@ -1,7 +1,7 @@
 from backend.ressources.authentification import SignupApi, LoginApi, LogoutApi,ChangePasswordApi
-from backend.ressources.quizz import QuizApi, SinglechoiceApi, ScoreApi
+from backend.ressources.quizz import QuizApi, SinglechoiceApi
 from backend.ressources.topics import TopicsApi
-from backend.ressources.user import UserApi, ChangeUserDataApi
+from backend.ressources.user import UserApi, ChangeUserDataApi, ScoreApi
 from backend.ressources.quizz import QuizByTopicApi
 
 

@@ -41,15 +41,5 @@ class SinglechoiceApi(Resource):
         return Response(sortedquestions, mimetype="application/json", status=200)
 
 
-class ScoreApi(Resource):
-    @jwt_required
-    def post(self):
-        current_user = get_jwt_identity()
-        body = request.get_json()
-        new_score = {"related_topic": body['relatedtopic'],
-                     "user": current_user,
-                     "score": body['score']
-                     }
-        user_score = Score(**new_score).save()
-        return {'id': user_score.to_json()}, 200
+
 
