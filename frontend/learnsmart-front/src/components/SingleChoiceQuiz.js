@@ -107,15 +107,15 @@ render() {
 	</div>
 	
  
- { this.state.questionBank.length > 0 && this.state.responses === this.state.questionBank.length &&  this.addScore()} 
-	
-	 { 
-		this.state.questionBank.length > 0 && this.state.responses === this.state.questionBank.length 
-		? (<Result score={this.state.score} totalQuest={this.state.questionBank.length}
-			playAgain={this.playAgain}/>) 
-		: <h2>This Topic Has No Quiz Available Yet </h2>
-	}  
-
+	{ this.state.questionBank.length > 0 && this.state.responses === this.state.questionBank.length &&  this.addScore()} 
+		
+		{ 
+			this.state.questionBank.length > 0 && this.state.responses === this.state.questionBank.length 
+			? (<Result score={this.state.score} totalQuest={this.state.questionBank.length}
+				playAgain={this.playAgain}/>) 
+			: null
+		}  
+	{ this.state.questionBank.length <= 0 && <h2>This Topic Has No Quiz Available Yet </h2> } 
 	</div>) 
 } 
 } 
