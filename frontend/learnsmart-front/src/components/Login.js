@@ -51,7 +51,7 @@ export default class Login extends Component {
         if (this.props.isLoggedIn) {
             // redirect to profil if is logged in
             return (
-                    <Redirect to = {{ pathname: "/profil" }} />
+                    <Redirect to = {{ pathname: "/topics" }} />
             );
         } else {
             return (
