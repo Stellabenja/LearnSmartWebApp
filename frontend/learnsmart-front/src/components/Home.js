@@ -15,8 +15,10 @@ class Home extends Component {
                                 <h2 className="text-white">Learning easily with quizzes </h2>
                             </div>
                             <div className="col-lg-12 mt-5">
-                            <Link to="/signup"><button className="btn btn-yellow t-medium text-darkblue" >create a FREE Account</button></Link>
+                                {localStorage.getItem('token')===null && <Link to="/signup"><button className="btn btn-yellow t-medium text-darkblue" >Create a FREE Account</button></Link>}
                             
+                                {localStorage.getItem('token')!== null && <Link to="/topics"><button className="btn btn-yellow t-medium text-darkblue" >Take a quiz</button></Link>}
+
                             </div>
                         </div>
                     </div>
