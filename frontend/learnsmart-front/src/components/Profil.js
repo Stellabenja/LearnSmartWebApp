@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import '../styles/Auth.css';
 import axios from 'axios';
+import profilIcon from '../images/person.png';
+import editIcon from '../images/edit-icon.png';
 import { Route, Redirect } from 'react-router-dom';
 import ReactDOM from 'react-dom'
 export default class Profil extends Component {
@@ -17,11 +19,13 @@ export default class Profil extends Component {
     this.state = {
       showPasswordForm: false,
       showUserDataForm: false,
+      showEditProfileBtn: true,
+      showChangePasswordBtn: true,
       actualPassWord: '',
       newPassword: '',
       userName: '',
       email: '',
-      dataChanged:false
+      dataChanged:false 
       
     }
   }
@@ -72,21 +76,38 @@ export default class Profil extends Component {
   }
   showPasswordForm (){
     return (
-      <div> 
-     <form id= "change-password" onSubmit={this.onSubmitPasswordForm}>
- 
-          <label>Actual password: </label>
-          <input type="password" value={this.state.actualPassWord} onChange={this.onChangeActualPassword} className="form-control" placeholder="Enter actual password"></input>
- 
-          <label> New password : </label>
-          <input type="password" value={this.state.newPassword} onChange={this.onChangeNewPassword} className="form-control" placeholder="Enter new password"></input>
-          <div className="asideComponents">
-            <button type="submit" className="btn btn-primary btn-block btn-submit">Submit</button>
-            <button type="button" className="btn btn-danger btn-block" onClick={() => this.setState({showPasswordForm: false}) }>Cancel</button>
+      <div className="form-div border"> 
+      <form id= "change-password" className= "form-edit-profil" onSubmit={this.onSubmitPasswordForm}>
+
+          <div className="form-box">
+            <label className="label-top">Change Password</label>
+            <div className="form-group first-row">
+                <label className="form-label">Actual password: </label> 
+                <input type="password" value={this.state.actualPassWord} onChange={this.onChangeActualPassword}
+                className="form-control profil-input" placeholder="Enter actual password"></input>
+            </div>
+            <div className="form-group second-row">
+                <label className="form-label">New password : </label>
+                <input type="password" value={this.state.newPassword} onChange={this.onChangeNewPassword}
+                className="form-control profil-input" placeholder="Enter new password"></input>
+            </div>
           </div>
-          
-       </form>
-       </div>
+
+          <div className="btn-row row">
+            <div className="col-md-6 mt-2">
+              <button type="submit" className="btn btn-primary btn-block btn-form">Submit</button>
+            </div>
+            <div className="col-md-6 mt-2">
+              <button type="" className="btn btn-danger btn-block btn-form " onClick={() => 
+                this.setState({showPasswordForm: false, showChangePasswordBtn: true}) }>
+                Cancel
+              </button>
+            </div>
+            
+          </div>
+            
+      </form>
+    </div>
       );
   } 
   onSubmitPasswordForm(e) {
@@ -101,7 +122,7 @@ export default class Profil extends Component {
     .then((res) => {
         if (res.status === 200) {
           window.location.reload(); 
-            
+          this.setState({showPasswordForm: false, showChangePasswordBtn: true})  
           };
         console.log(res)
         
@@ -114,22 +135,38 @@ export default class Profil extends Component {
 
   showUserDataForm (){
     return (
-      <div> 
-     <form id= "change-userData" onSubmit={this.onSubmitUserDataForm}>
-  
- 
-          <label> New Username : </label> 
-          <input type="text" value={this.state.userName} onChange={this.onChangeUserName} className="form-control" placeholder="Enter new username"></input>
+      <div className="form-div border"> 
+        <form className= "form-edit-profil" onSubmit={this.onSubmitUserDataForm}>
 
-          <label> New email : </label>
-          <input type="email" value={this.state.email} onChange={this.onChangeEmail} className="form-control" placeholder="Enter new email"></input>
-          <div className="asideComponents">
-            <button type="submit" className="btn btn-primary btn-block btn-submit">Submit</button>
-            <button type="button" className="btn btn-danger btn-block" onClick={() => this.setState({showUserDataForm: false}) }>Cancel</button>
-          </div>
-          
-       </form>
-       </div>
+            <div className="">
+            <label className="label-top">Edit Profil</label>
+              <div className="form-group first-row">
+                  <label className="form-label">Username : </label> 
+                  <input type="text" value={this.state.userName} onChange={this.onChangeUserName}
+                  className="form-control profil-input" placeholder="Enter new username"></input>
+              </div>
+              <div className="form-group second-row">
+                  <label className="form-label">Email : </label>
+                  <input type="email" value={this.state.email} onChange={this.onChangeEmail}
+                  className="form-control profil-input" placeholder="Enter new email"></input>
+              </div>
+            </div>
+
+            <div className="btn-row row">
+              <div className="col-md-6 mt-2">
+                <button type="submit" className="btn btn-primary btn-block btn-form">Submit</button>
+              </div>
+              <div className="col-md-6 mt-2">
+                <button type="" className="btn btn-danger btn-block btn-form " onClick={() => 
+                  this.setState({showUserDataForm: false, showEditProfileBtn: true}) }>
+                  Cancel
+                </button>
+              </div>
+              
+            </div>
+              
+        </form>
+      </div>
       );
   }
   onSubmitUserDataForm(e) {
@@ -144,8 +181,7 @@ export default class Profil extends Component {
     axios.post('http://localhost:5000/api/changeUserData', userObject)
     .then((res) => {
         if (res.status === 200) {
-          this.setState({ dataChanged: true });
-            
+          this.setState({ dataChanged: true, showUserDataForm: false});
         };
         console.log(res)
         
@@ -171,40 +207,58 @@ export default class Profil extends Component {
       var email = localStorage.getItem( 'email' ) || 1;
       console.log(localStorage.getItem( 'userName' ));
           return (
-            <div className="auth-wrapper">
-              <div className="auth-inner profil">
+            <div className="profil-container">
+              <div className="row profil">
                 
-                <div className="userData profil">
+                <div className="left-side col-md-3">
+                  <div className="" id="profil-icon-box"><img id="profil-icon" src={profilIcon} alt="Profil" /></div>
                   {userName!==1 &&
-                              <div>
-                                  <strong>Username: </strong> {userName}<br></br>
-                                  <strong>Email: </strong> {email}<br></br>
-                                  <div> </div>
+                              <div className="user-data">
+                                <div className="user-name"> <strong>{userName}</strong> <br></br></div>
+                                <div className="user-email">{email} </div>
                               </div>
-
-                              
                   }
                   {userName===1 &&
                               <div>
-                                  <strong>Username: </strong>{this.props.userName}<br></br>
-                                  <strong>Email: </strong> {this.props.email}<br></br>
+                                <div className="user-name"> <strong>{this.props.userName}</strong> <br></br></div>
+                                <div className="user-email">{this.props.email}</div>
                               </div>
                   }
-                  <div className='asideComponents profil'>
-                    <div><strong>Password: </strong>********<br></br></div>
-                    <button className="btn btn-secondary btn-block"  onClick={() => this.setState({showPasswordForm: true}) }>Change password</button>
+                  <div className='asideComponents'>
+                    
+                    
+                    {this.state.showEditProfileBtn &&
+                      <div>
+                        <button className="btn btn-profil btn-updateUserData"  onClick={() => 
+                          this.setState({showUserDataForm: true, showPasswordForm: false, showEditProfileBtn: false, showChangePasswordBtn: true}) }>
+                          <img id="edit-icon" src={editIcon} alt="edit Profil" />
+                            Edit profil
+                        </button>
+                      </div>
+                    }
+                      
+                    {this.state.showChangePasswordBtn &&
+                      <div>
+                        <button className="btn btn-profil"  onClick={() => 
+                          this.setState({showPasswordForm: true, showUserDataForm: false, showChangePasswordBtn: false, showEditProfileBtn: true,})  }>
+                          <img id="edit-icon" src={editIcon} alt="edit Profil" />
+                          Change password
+                        </button>
+                      </div>
+
+                    }
+                    
+                  </div>
+                  <div className="row">
+                    {this.state.showPasswordForm ? this.showPasswordForm() : null}
+                    {this.state.showUserDataForm ? this.showUserDataForm() : null}
                   </div>
                 </div>
-                
-                
-                <div>
-                  {this.state.showPasswordForm ? this.showPasswordForm() : null}
-                  {this.state.showUserDataForm ? this.showUserDataForm() : null}
-                </div>
-                
-
-                <div>
-                  <button className="btn btn-secondary btn-block btn-updateUserData"  onClick={() => this.setState({showUserDataForm: true}) }>Update User Data</button>
+                <div className="right-side col-md-8">
+                  <div className="quizz-info border"></div>
+                  {/*<div className="container quizz-info"> </div>*/}
+                 
+                  
                 </div>
               </div>
               

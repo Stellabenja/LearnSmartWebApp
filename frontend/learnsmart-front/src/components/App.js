@@ -13,6 +13,7 @@ import AddQuiz from './AddQuiz';
 import Quiz from './Quiz';
 import Profil from './Profil';
 import Logout from './Logout';
+import ShareData from './ShareData';
 import SingleChoiceQuiz from './SingleChoiceQuiz';
 
 export default class App extends Component {
@@ -97,6 +98,9 @@ export default class App extends Component {
           <Route path="/quiz/:topic_name" component={Quiz}/>
           <Route path="/quizbox/:topic_name" component={SingleChoiceQuiz}/>
           <Route path="/logout" component={Logout}/>
+          <Route path="/share-data">
+            <ShareData/>
+          </Route>
         </Switch> 
       </Router>
      
