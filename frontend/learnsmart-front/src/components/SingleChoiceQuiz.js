@@ -9,7 +9,8 @@ constructor() {
 	this.state = { 
 	questionBank: [], 
 	score: 0, 
-	responses: 0 
+	responses: 0 ,
+	currentTopic:""
 	}; 
 } 
 // Set state back to default and call function 
@@ -79,28 +80,40 @@ addScore(){
 }
 // componentDidMount function to get question 
 componentDidMount() { 
+	this.getCurrentTopicName();
 	this.getQuestions();
+	
 } 
-
+getCurrentTopicName(){
+	const { match: { params } } = this.props;
+	if(this.props){
+		this.setState({ 
+			currentTopic: params.topic_name
+		}); 
+	}
+}
 render() { 
 	return (<div className="container"> 
-	<div className="title"> 
-		QuizOn 
+	<div className="title mb-5 mt-3"> 
+	
+		<h2>Quiz On {this.state.currentTopic}</h2> 
 	</div> 
-
-	{this.state.questionBank.length > 0 && 
-	this.state.responses < this.state.questionBank.length && 
-	this.state.questionBank.map((data, i) => <QuizzBox question= 
-	{data.question} options={data.assumptions} key={i} 
-	selected={answer => this.computeAnswer(answer, data.answer,this.state.questionBank.length)}/>)} 
+	<div className="row">
+		{this.state.questionBank.length > 0 && 
+		this.state.responses < this.state.questionBank.length && 
+		this.state.questionBank.map((data, i) => <QuizzBox question= 
+		{data.question} options={data.assumptions} key={i} 
+		selected={answer => this.computeAnswer(answer, data.answer,this.state.questionBank.length)}/>)} 
+	</div>
+	
  
- { this.state.responses === this.state.questionBank.length && this.addScore()} 
+ { this.state.questionBank.length > 0 && this.state.responses === this.state.questionBank.length &&  this.addScore()} 
 	
 	 { 
-		this.state.responses === this.state.questionBank.length 
+		this.state.questionBank.length > 0 && this.state.responses === this.state.questionBank.length 
 		? (<Result score={this.state.score} totalQuest={this.state.questionBank.length}
 			playAgain={this.playAgain}/>) 
-		: null
+		: <h2>This Topic Has No Quiz Available Yet </h2>
 	}  
 
 	</div>) 

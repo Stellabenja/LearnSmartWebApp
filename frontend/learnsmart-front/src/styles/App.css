@@ -32,6 +32,7 @@
 }
 .bgnav-color{
   background-color: #0c0ceab0;
+  height: 100px
 }
 .bg-color{
   background-color: #0088ffd1;
@@ -44,6 +45,9 @@
 }
 .t-18{
   font-size: 17pt;
+}
+.t-15{
+  font-size: 15pt;
 }
 .t-medium{
   font-weight: 700;
