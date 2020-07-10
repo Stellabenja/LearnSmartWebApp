@@ -52,6 +52,9 @@
 .t-medium{
   font-weight: 700;
 }
+.ptr{
+  cursor: pointer 
+}
 .text-darkblue{
   color: #0c2340;
 }

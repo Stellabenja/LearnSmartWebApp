@@ -17,9 +17,9 @@ const QuizzBox = ({ question, options, selected}) => {
                     {answer.map((text, index) => ( 
                         <div className="col-md-12 mt-3">
                             <div class="card">
-                                    <div class="card bg-primary">
+                                    <div class="card bg-primary ptr">
                                         <div className="card-body text-center key={index}  ml-3"
-                                                                onClick={()=>{ setAnswer([text]); selected(text); }}>
+                                                onClick={()=>{ setAnswer([text]); selected(text); }}>
                                             <p class="card-text text-white t-15" > {text}  </p>
                                         </div>
                                     </div>
