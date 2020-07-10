@@ -39,7 +39,7 @@ export default class UserStatus extends Component {
 render(){
 
     return(
-        <div className="container">
+        <div className="container profil-container">
             <div className="row mt-5">
             <div className="col-md-12">
              <h2>Topics Already Visited </h2>

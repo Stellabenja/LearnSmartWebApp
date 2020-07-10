@@ -43,7 +43,7 @@
 }
 .bodyheigth{
   height: 500px;
-  padding-top: 80px;
+  padding-top: 300px;
 }
 .t-18{
   font-size: 17pt;
@@ -185,5 +185,5 @@
   margin-left: 35px;
 }
 .profil-container {
-  padding: 40px;
+  padding: 80px;
 }

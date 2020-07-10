@@ -207,7 +207,7 @@ export default class Profil extends Component {
       var email = localStorage.getItem( 'email' ) || 1;
       console.log(localStorage.getItem( 'userName' ));
           return (
-            <div className="profil-container">
+            <div className="profil-container container">
               <div className="row profil">
                 
                 <div className="left-side col-md-3">
