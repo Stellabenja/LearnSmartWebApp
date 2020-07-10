@@ -1,8 +1,10 @@
 from flask import Response, request
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from backend.database.models.quizz_model import Quiz, Singlechoice
 from flask_restful import Resource
+
+from backend.database.models.user_model import Score
 
 
 class QuizApi(Resource):
@@ -40,5 +42,14 @@ class SinglechoiceApi(Resource):
 
 
 class ScoreApi(Resource):
+    @jwt_required
     def post(self):
-        return {'id': "str(id)"}, 200
+        current_user = get_jwt_identity()
+        body = request.get_json()
+        new_score = {"related_topic": body['relatedtopic'],
+                     "user": current_user,
+                     "score": body['score']
+                     }
+        user_score = Score(**new_score).save()
+        return {'id': user_score.to_json()}, 200
+

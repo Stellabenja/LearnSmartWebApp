@@ -32,8 +32,8 @@ class User(db.Document):
         self.email = email
         print(self.email)
 
-class Userstatus(db.Document):
-    relatedTopic = db.StringField(required=True)
+
+class Score(db.Document):
+    related_topic = db.StringField(required=True)
     user = ReferenceField(User)
     score = db.IntField(required=True)
-

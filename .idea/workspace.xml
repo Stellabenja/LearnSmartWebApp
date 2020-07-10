@@ -21,12 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bb3c4823-2713-4209-b276-d37995f0d59e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/models/quizz_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/models/quizz_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/models/user_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ressources/quizz.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ressources/quizz.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/ressources/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ressources/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ressources/authentification.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ressources/authentification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/ressources/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ressources/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/SingleChoiceQuiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/SingleChoiceQuiz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/learnsmart-front/src/components/Login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,22 +130,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1593115077484" />
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1593988742010">
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1594037923015">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593988742010" />
-    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1593988742010">
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594037923015" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1594037923015">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593988742010" />
-    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1593988742010">
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594037923015" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1594037923014">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593988742010" />
-    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1593988742010">
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594037923014" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1594037923015">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593988742010" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594037923015" />
     <state width="672" height="223" key="GridCell.Tab.1.bottom" timestamp="1593167563582">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -174,7 +172,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/ressources/topics.py</url>
-          <line>11</line>
+          <line>12</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

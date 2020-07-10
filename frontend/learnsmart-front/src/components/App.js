@@ -87,9 +87,8 @@ export default class App extends Component {
           <Route path="/signup">
           <Signup/>
           </Route>
-          <Route path="/topics">
-            <Topics/>
-          </Route>
+          <Route path="/topics" component={Topics}/>
+         
           <Route path="/addTopic">
             <AddTopic/>
           </Route>

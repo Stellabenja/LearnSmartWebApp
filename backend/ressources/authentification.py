@@ -46,6 +46,7 @@ class LogoutApi(Resource):
 
 
 class ChangePasswordApi(Resource):
+    @jwt_required
     def post(self):
         body = request.get_json()
         print(body)
