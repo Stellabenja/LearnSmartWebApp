@@ -3,6 +3,7 @@ from backend.ressources.quizz import QuizApi, SinglechoiceApi, ScoreApi
 from backend.ressources.topics import TopicsApi
 from backend.ressources.user import UserApi, ChangeUserDataApi
 from backend.ressources.quizz import QuizByTopicApi
+from backend.ressources.upload import UploadApi, ShowUploads
 
 
 
@@ -20,4 +21,6 @@ def initialize_routes(api):
     api.add_resource(ChangePasswordApi, '/api/auth/changePassword')
     api.add_resource(ChangeUserDataApi, '/api/changeUserData')
     api.add_resource(ScoreApi,'/api/score')
+    api.add_resource(UploadApi, '/api/upload')
+    api.add_resource(ShowUploads, '/api/showUploads')
 
