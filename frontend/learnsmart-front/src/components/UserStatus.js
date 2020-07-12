@@ -2,13 +2,32 @@ import React, { Component } from "react";
 import '../styles/Auth.css';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-
+import ReactApexChart from "react-apexcharts";
 export default class UserStatus extends Component {
     constructor(props){
         super(props); 
         this.state = { 
         visitedTopics: [], 
-        
+        dataSerie:[],
+        series: [],
+        options: {
+            chart: {
+            height: 350,
+            type: 'area'
+            },
+            dataLabels: {
+            enabled: false
+            },
+            stroke: {
+            curve: 'smooth'
+            },
+            xaxis: {
+            type: 'text',
+            categories: ["score1", "score2", "score3", "score4", "score5"]
+            },
+            
+        },
+          
         }; 
     }
     getAllVisitedTopic(){
@@ -21,6 +40,34 @@ export default class UserStatus extends Component {
         )
             .then(res => {
                 this.setState({ visitedTopics: res.data });
+                console.log(this.state.visitedTopics);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+    getSerieData(){
+        axios.get('http://localhost:5000/api/lastrecord',
+        {
+            headers: {
+            'Authorization':`Bearer ${localStorage.getItem('token')}` 
+          }
+        }
+        )
+            .then(res => {
+                this.setState({ dataSerie: res.data });
+                console.log( this.state.dataSerie);
+                const newDataSerie=[...this.state.series]
+                 this.state.dataSerie.map((data,i)=>{
+                     newDataSerie.push({
+                        name:data.data._id,
+                        data:data.data.score.slice(Math.max(data.data.score.length - 5, 0))
+                    })
+                    this.setState({newDataSerie})
+                    this.setState({series:newDataSerie})
+                }) 
+                console.log( newDataSerie);
+               
             })
             .catch(function (error) {
                 console.log(error);
@@ -28,11 +75,12 @@ export default class UserStatus extends Component {
     }
     componentDidMount(){
         this.getAllVisitedTopic()
+        this.getSerieData()
     }
     dataButton() {
-        return this.state.visitedTopics.map((data) => {
-            return <div className="col-6 col-md-6 mt-4" >
-                    <Link to={`/quizbox/${data}`}> <button className="btn btn-yellow t-medium text-darkblue btn-topic"> {data} </button></Link>
+        return this.state.visitedTopics.map((data,i) => {
+            return <div className="col-4 col-md-4 mt-4" key={i} >
+                    <Link to={`/quizbox/${data.name}`}> <button className="btn btn-yellow t-medium text-darkblue btn-topic"> {data.name} </button></Link>
                    </div>
         });
     }
@@ -45,7 +93,12 @@ render(){
              <h2>Topics Already Visited </h2>
             </div>
             {this.dataButton()}
+            <div id="chart" className="col-md-12">
+            <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
             </div>
+    
+            </div>
+
         </div>
     )
 }
