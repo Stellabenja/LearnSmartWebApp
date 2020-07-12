@@ -64,8 +64,9 @@ export default class UserStatus extends Component {
                         data:data.data.score.slice(Math.max(data.data.score.length - 5, 0))
                     })
                     this.setState({newDataSerie})
-                    this.setState({series:newDataSerie})
+                    
                 }) 
+                this.setState({series:newDataSerie})
                 console.log( newDataSerie);
                
             })
@@ -79,7 +80,7 @@ export default class UserStatus extends Component {
     }
     dataButton() {
         return this.state.visitedTopics.map((data,i) => {
-            return <div className="col-4 col-md-4 mt-4" key={i} >
+            return <div className="col-12 col-md-12 mt-4" key={i} >
                     <Link to={`/quizbox/${data.name}`}> <button className="btn btn-yellow t-medium text-darkblue btn-topic"> {data.name} </button></Link>
                    </div>
         });
@@ -89,11 +90,15 @@ render(){
     return(
         <div className="container profil-container">
             <div className="row mt-5">
-            <div className="col-md-12">
-             <h2>Topics Already Visited </h2>
+            <div className="col-md-4 mt-4">
+                <h3>Topics Already Visited </h3>
+                <div className="row ">
+                {this.dataButton()}
+                </div>
             </div>
-            {this.dataButton()}
-            <div id="chart" className="col-md-12">
+           
+            <div id="chart" className="col-md-8 mt-4">
+            <h3>Last Five Scores By Topics</h3>
             <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
             </div>
     
