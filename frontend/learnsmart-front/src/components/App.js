@@ -15,24 +15,38 @@ import Profil from './Profil';
 import Logout from './Logout';
 import ShareData from './ShareData';
 import SingleChoiceQuiz from './SingleChoiceQuiz';
+
+import UploadPage from './UploadPage.js';
+
 import TopicMaterial from './TopicMaterial';
 import UserStatus from './UserStatus';
+
 
 export default class App extends Component {
 
   constructor(props){
     super(props)
+
+    this.changeStatus = this.changeStatus.bind(this);
+    this.saveUserId = this.saveUserId.bind(this);
+    this.addUserData = this.addUserData.bind(this);
+    this.redirectPage = this.redirectPage.bind(this);
+    this.fillUploadList = this.fillUploadList.bind(this);
+    this.setUploadsListFilled = this.setUploadsListFilled.bind(this);
+    this.setSelectedTopic = this.setSelectedTopic.bind(this);
+
     this.state = {
         isLoggedIn: false,
         userName:'',
         email:'',
         userID:'',
-        redirect: false
+        redirect: false,
+        uploadsList:[],
+        selectedTopic:'',
+        uploadsListFilled: false,
     }
-    this.changeStatus = this.changeStatus.bind(this);
-    this.saveUserId = this.saveUserId.bind(this);
-    this.addUserData = this.addUserData.bind(this);
-    this.redirectPage = this.redirectPage.bind(this);
+    
+    
   }
 
   changeStatus(isLoggedIn, userID) {
@@ -61,6 +75,23 @@ export default class App extends Component {
     this.setState({
       redirect:redirect,
     });
+  }
+  fillUploadList(list) {
+    this.setState({ 
+      uploadsList: list,
+    });
+  }
+  setSelectedTopic(topic) {
+    this.setState({ 
+      selectedTopic: topic,
+    });
+
+    if(localStorage.getItem( 'selectedTopic' )===null || localStorage.getItem( 'selectedTopic' )!==topic) {
+      localStorage.setItem( 'selectedTopic', topic );
+    }
+  }
+  setUploadsListFilled(){
+    this.setState({ uploadsListFilled: true });
   }
   render(){
   return (
@@ -103,7 +134,13 @@ export default class App extends Component {
           <Route path="/topicmaterial/:topic_name" component={TopicMaterial}/>
           <Route path="/status" component={UserStatus}/>
           <Route path="/share-data">
-            <ShareData/>
+            <ShareData selectedTopic={this.state.selectedTopic} 
+                uploadsListFilled={this.state.uploadsListFilled} setUploadsListFilled={this.setUploadsListFilled}
+                uploadsList={this.state.uploadsList} fillUploadList={this.fillUploadList} setSelectedTopic={this.setSelectedTopic} />
+          </Route>
+          <Route path="/showUploadPage">
+            <UploadPage selectedTopic={this.state.selectedTopic} uploadsList={this.state.uploadsList} setUploadsListFilled={this.setUploadsListFilled}
+             fillUploadList={this.fillUploadList}/>
           </Route>
         </Switch> 
       </Router>
@@ -112,36 +149,4 @@ export default class App extends Component {
     </div>
   );
 }}
-
-/*export default class Logout extends Component {
-constructor(props){
-    super(props)
-    this.state = {
-        redirect: false
-    }
-}
-    componentDidMount() {
-        axios.get('http://localhost:5000/api/auth/logout',
-        {
-            headers: {
-            'Authorization':`Bearer ${localStorage.getItem('token')}`
-          }
-        }
-        )
-            .then(res => {
-                console.log(res.data)
-                 this.setState({ redirect: true })
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    }
-    render() {
-        const { redirect } = this.state;
-        if (redirect) {
-        //return <Redirect to='/sign-in'/>;
-        }
-        return(<div>LOGOUT</div>) 
-    }
-} */
 
