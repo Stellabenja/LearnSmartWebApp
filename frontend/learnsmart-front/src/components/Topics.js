@@ -31,7 +31,7 @@ export default class Topics extends Component{
     }
     render(){
         return(
-            <div className="container">
+            <div className="container profil-container">
                 <div className="row mt-5">
                 {this.dataButton()}
                 </div>

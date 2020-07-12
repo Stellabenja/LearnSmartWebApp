@@ -20,6 +20,7 @@ export default class Logout extends Component {
     localStorage.removeItem('userID');
     localStorage.removeItem('userName');
     localStorage.removeItem('email');
+    localStorage.removeItem('token')
     
   }
     componentDidMount() {

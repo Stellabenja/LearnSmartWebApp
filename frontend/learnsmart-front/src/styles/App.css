@@ -31,6 +31,8 @@
   color: white;
 }
 .bgnav-color{
+  /* background-color: #0c0ceab0; */
+  height: 100px;
   background-color: #0d47a1;
 }
 .bg-color{
@@ -41,13 +43,19 @@
 }
 .bodyheigth{
   height: 500px;
-  padding-top: 80px;
+  padding-top: 300px;
 }
 .t-18{
   font-size: 17pt;
 }
+.t-15{
+  font-size: 15pt;
+}
 .t-medium{
   font-weight: 700;
+}
+.ptr{
+  cursor: pointer 
 }
 .text-darkblue{
   color: #0c2340;
@@ -177,6 +185,7 @@
   margin-left: 35px;
 }
 .profil-container {
+
   padding: 40px;
 }
 .topics-dropdown-menu {

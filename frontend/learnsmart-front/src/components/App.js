@@ -15,7 +15,12 @@ import Profil from './Profil';
 import Logout from './Logout';
 import ShareData from './ShareData';
 import SingleChoiceQuiz from './SingleChoiceQuiz';
+
 import UploadPage from './UploadPage.js';
+
+import TopicMaterial from './TopicMaterial';
+import UserStatus from './UserStatus';
+
 
 export default class App extends Component {
 
@@ -126,6 +131,8 @@ export default class App extends Component {
           <Route path="/quiz/:topic_name" component={Quiz}/>
           <Route path="/quizbox/:topic_name" component={SingleChoiceQuiz}/>
           <Route path="/logout" component={Logout}/>
+          <Route path="/topicmaterial/:topic_name" component={TopicMaterial}/>
+          <Route path="/status" component={UserStatus}/>
           <Route path="/share-data">
             <ShareData selectedTopic={this.state.selectedTopic} 
                 uploadsListFilled={this.state.uploadsListFilled} setUploadsListFilled={this.setUploadsListFilled}
