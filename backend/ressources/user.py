@@ -1,4 +1,7 @@
-from flask import Response, request
+import json
+
+from bson import json_util
+from flask import Response, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from backend.database.models.user_model import User, Score
@@ -50,5 +53,29 @@ class ScoreApi(Resource):
     @jwt_required
     def get(self):
         visited_topic = Score.objects(user=get_jwt_identity()).distinct("related_topic")
-        print(visited_topic)
-        return Response({"topics":visited_topic}, status=200)
+
+        result = []
+
+        # create a instances for filling up list
+        for topic in visited_topic:
+            result.append({"name": topic})
+        print(result)
+        return Response(json.dumps(result), mimetype="application/json", status=200)
+
+
+class LastRecordApi(Resource):
+    @jwt_required
+    def get(self):
+        #sort({'$natural:-1'}).limit(5)
+        pipeline = [
+            {"$group": {"_id": "$related_topic", "score": {"$push": "$score"}}}
+        ]
+        grouped_score = Score.objects(user=get_jwt_identity()).aggregate(pipeline)
+        result = []
+        for doc in grouped_score:
+            result.append({"data":doc})
+
+        #json_docs = [json.dumps(doc, default=json_util.default) for doc in grouped_score]
+        print(result)
+
+        return Response(json.dumps(result), status=200)
