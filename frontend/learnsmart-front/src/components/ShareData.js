@@ -137,7 +137,7 @@ export default class ShareData extends Component {
         } else {
 
             return (
-                <div className="uploads-container">
+                <div className="uploads-container container">
                     <div className="row">
                         <div className="col-md-2">
                             {this.state.showUploadBtn &&
@@ -158,35 +158,44 @@ export default class ShareData extends Component {
                                 <Card className="topic-card">
                                     <CardTitle>React</CardTitle>
                                     <CardBlock>
-                                        
-                                        <button className="btn btn-info t-medium text-white" value="React" onClick={() =>this.showUploadsToATopic('React')}>
+                                    <Link to={`/topicmaterial/React`}> <button className="btn btn-info t-medium text-white">
                                             Related lectures or Videos
-                                        </button>
+                                        </button></Link>
+ 
                                         
                                     </CardBlock>
                                 </Card>
                                 <Card className="topic-card">
                                     <CardTitle>Dash</CardTitle>
                                     <CardBlock>
-                                        <button className="btn btn-info t-medium text-white" value="Dash" onClick={() =>this.showUploadsToATopic('Dash')}>
+                                        {/* <button className="btn btn-info t-medium text-white" value="Dash" onClick={() =>this.showUploadsToATopic('Dash')}>
                                             Related lectures or Videos
-                                        </button>
+                                        </button> */}
+                                         <Link to={`/topicmaterial/Dash`}> <button className="btn btn-info t-medium text-white">
+                                            Related lectures or Videos
+                                        </button></Link>
                                     </CardBlock>
                                 </Card>
                                 <Card className="topic-card">
                                     <CardTitle>Flask</CardTitle>
                                     <CardBlock>
-                                        <button className="btn btn-info t-medium text-white" value="Flask" onClick={() =>this.showUploadsToATopic('Flask')}>
+                                       {/*  <button className="btn btn-info t-medium text-white" value="Flask" onClick={() =>this.showUploadsToATopic('Flask')}>
                                             Related lectures or Videos
-                                        </button>
+                                        </button> */}
+                                        <Link to={`/topicmaterial/Flask`}> <button className="btn btn-info t-medium text-white">
+                                            Related lectures or Videos
+                                        </button></Link>
                                     </CardBlock>
                                 </Card>
                                 <Card className="topic-card">
                                     <CardTitle>MongoDB</CardTitle>
                                     <CardBlock>
-                                        <button className="btn btn-info t-medium text-white" value="Flask" onClick={() =>this.showUploadsToATopic('Flask')}>
+                                       {/*  <button className="btn btn-info t-medium text-white" value="Flask" onClick={() =>this.showUploadsToATopic('Flask')}>
                                             Related lectures or Videos
-                                        </button>
+                                        </button> */}
+                                        <Link to={`/topicmaterial/MongoDB`}> <button className="btn btn-info t-medium text-white">
+                                            Related lectures or Videos
+                                        </button></Link>
                                     </CardBlock>
                                 </Card>
                             </div>

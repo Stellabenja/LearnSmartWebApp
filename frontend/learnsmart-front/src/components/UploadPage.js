@@ -55,7 +55,7 @@ export default class UploadPage extends Component {
         });
         console.log( this.state.list);
         return (
-             <div className="uploads-container">
+             <div className="uploads-container profil-container">
                 <div className="row">
                     <div className="col-md-6">
                         <h3>{topicname}</h3>

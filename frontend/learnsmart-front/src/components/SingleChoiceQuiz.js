@@ -93,7 +93,7 @@ getCurrentTopicName(){
 	}
 }
 render() { 
-	return (<div className="container profil-container"> 
+	return (<div className="container profil-container mt-5"> 
 	<div className="title mb-5 mt-3"> 
 	
 		<h2>Quiz On {this.state.currentTopic}</h2> 

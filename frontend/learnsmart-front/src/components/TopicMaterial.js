@@ -56,7 +56,7 @@ export default class TopicMaterial extends Component {
     }
     render(){
         return(
-        <div className="container">
+        <div className="container profil-container mt-5">
             <div className="row">
                 <div className="col-md-12 text-center mb-4 mt-3">
                 <h2>View Related Lectures and Videos </h2>
@@ -73,20 +73,21 @@ export default class TopicMaterial extends Component {
                     <div className="card mb-5 mx-5">
                         <div className="card bg-light">
                             <div className="card-body  ml-3">
-                            <button type="button" className="t-15 text-white btn btn-primary w-25 mb-2 disabled" >Lectures</button>
-                             {this.state.links.map((data, i) => (<h2 key={i}>{data.typeofupload !=="video" && <span className="t-15">Lecture:<a href='#'>{data.link}</a></span>}</h2>) )}
+                            <span  className="t-16 w-25 mb-2 disabled" >Lectures</span>
+                             {this.state.links.map((data, i) => (<h2 key={i}>{data.typeofupload !=="video" && <span className="t-15">Wep-page:<a href='#'>{data.link}</a></span>}</h2>) )}
           
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-12">
+                    <h2>Videos</h2>
                     <div className="row">
                         
-                        {this.state.links.map((data, i) => (<div className="col-md-6" key={i}>{data.typeofupload ==="video" && <iframe width="420" height="345" src={data.link}></iframe>}</div> ) )}
+                        {this.state.links.map((data, i) =><span> {data.typeofupload ==="video" && <div className="col-md-6" key={i}><iframe width="420" height="345" src={data.link}></iframe></div>}</span>)}
                         {/* <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> */}
-                        
-                    </div>
+                        </div> 
+                   
                 </div>
             </div>
         </div>

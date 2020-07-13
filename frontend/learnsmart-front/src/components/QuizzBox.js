@@ -4,7 +4,7 @@ import React, {useState, Component} from "react";
 const QuizzBox = ({ question, options, selected}) => { 
     const [answer, setAnswer] = useState(options); 
     return ( 
-            <div className="questionBox col-md-6 mt-4">
+            <div className="questionBox col-md-6 mt-4 ">
                 
                 <div className=" row mt-3 ">
                 <span className="ml-4">

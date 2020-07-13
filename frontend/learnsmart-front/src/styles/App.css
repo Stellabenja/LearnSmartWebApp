@@ -32,7 +32,7 @@
 }
 .bgnav-color{
   /* background-color: #0c0ceab0; */
-  height: 100px;
+  height: 80px;
   background-color: #0d47a1;
 }
 .bg-color{
@@ -125,9 +125,9 @@
 }
 .btn-profil {
   width: 200px;
-  height: 25px;
+  height: 35px;
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
 }
 #edit-icon {
   width: 10px;
@@ -203,7 +203,7 @@
   text-align: left;
 }
 .uploads-container {
-  padding-top: 80px;
+  padding-top: 120px;
 }
 .uploads {
   width: 600px;
@@ -221,4 +221,10 @@
 }
 .uploadedLink {
   text-align: left;
+}
+.exit-icon{
+  height: 55px;
+  padding-top: -2rem;
+  padding-bottom: 1.25rem;
+  margin-right: 3rem;
 }

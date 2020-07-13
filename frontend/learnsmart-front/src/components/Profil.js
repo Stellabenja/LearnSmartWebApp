@@ -210,7 +210,7 @@ export default class Profil extends Component {
             <div className="profil-container container">
               <div className="row profil">
                 
-                <div className="left-side col-md-3">
+                <div className="left-side col-md-12">
                   <div className="" id="profil-icon-box"><img id="profil-icon" src={profilIcon} alt="Profil" /></div>
                   {userName!==1 &&
                               <div className="user-data">
@@ -224,9 +224,8 @@ export default class Profil extends Component {
                                 <div className="user-email">{this.props.email}</div>
                               </div>
                   }
-                  <div className='asideComponents'>
-                    
-                    
+                  <div className='asideComponents row'>
+                    <div className="col-md-12 mb-3">
                     {this.state.showEditProfileBtn &&
                       <div>
                         <button className="btn btn-profil btn-updateUserData"  onClick={() => 
@@ -236,7 +235,8 @@ export default class Profil extends Component {
                         </button>
                       </div>
                     }
-                      
+                    </div>
+                    <div className="col-md-12">
                     {this.state.showChangePasswordBtn &&
                       <div>
                         <button className="btn btn-profil"  onClick={() => 
@@ -247,6 +247,8 @@ export default class Profil extends Component {
                       </div>
 
                     }
+                    </div>
+                  
                     
                   </div>
                   <div className="row">
@@ -254,12 +256,12 @@ export default class Profil extends Component {
                     {this.state.showUserDataForm ? this.showUserDataForm() : null}
                   </div>
                 </div>
-                <div className="right-side col-md-8">
+                {/* <div className="right-side col-md-8">
                   <div className="quizz-info border"></div>
-                  {/*<div className="container quizz-info"> </div>*/}
+                  <div className="container quizz-info"> </div>
                  
                   
-                </div>
+                </div> */}
               </div>
               
             </div> 
