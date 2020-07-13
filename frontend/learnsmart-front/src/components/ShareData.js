@@ -72,7 +72,10 @@ export default class ShareData extends Component {
             link: this.state.link
           };
         
-        axios.post('http://localhost:5000/api/upload', userObject)
+        axios.post('http://localhost:5000/api/upload', userObject,{ headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
         .then(res => {
             this.setState({showUploadBtn:true, showUploadForm:false})
             console.log(res);

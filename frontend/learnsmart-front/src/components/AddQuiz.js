@@ -17,7 +17,10 @@ export default class AddTopic extends Component{
         }
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/topics')
+        axios.get('http://localhost:5000/api/topics',{ headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
             .then(res => {
                 this.setState({ topicsCollection: res.data });
             })

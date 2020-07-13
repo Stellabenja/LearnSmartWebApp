@@ -16,7 +16,7 @@ export default class TopicMaterial extends Component {
 	if(this.props){
         this.setState({topic_name:params.topic_name})
 		try{
-                axios.get(`http://localhost:5000/api/material/${params.topic_name}`,
+                axios.post('http://localhost:5000/api/showUploads',{"topicname":params.topic_name},
                 {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -38,6 +38,22 @@ export default class TopicMaterial extends Component {
         this.getMaterial()
        
     } 
+    dataLink() {
+        return this.state.links.map((data, i) => {
+            return <div key={i}>
+                {data.typeofupload !== "video" && <h2><span className="t-15">Lecture:<a href='#'>{data.uploaded}</a></span></h2>}
+                </div>
+
+        });
+    }
+    dataVideo() {
+        return this.state.links.map((data, i) => {
+            return <div key={i}>
+                
+                {data.typeofupload === "video" && <div className="col-md-6"><iframe width="420" height="345" src={data.uploaded}></iframe></div>}</div>
+
+        });
+    }
     render(){
         return(
         <div className="container">
@@ -54,23 +70,22 @@ export default class TopicMaterial extends Component {
                     <div className="">
                         
                     </div>
-                    <div class="card mb-5 mx-5">
-                        <div class="card bg-light">
+                    <div className="card mb-5 mx-5">
+                        <div className="card bg-light">
                             <div className="card-body  ml-3">
                             <button type="button" className="t-15 text-white btn btn-primary w-25 mb-2 disabled" >Lectures</button>
-                                <h2><span className="t-15">Title:<a href='#'>test....</a></span></h2>
+                             {this.state.links.map((data, i) => (<h2 key={i}>{data.typeofupload !=="video" && <span className="t-15">Lecture:<a href='#'>{data.link}</a></span>}</h2>) )}
+          
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-12">
                     <div className="row">
-                        <div className="col-md-6">
-                        <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                        </div>
-                        <div className="col-md-6">
-                        <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                        </div>
+                        
+                        {this.state.links.map((data, i) => (<div className="col-md-6" key={i}>{data.typeofupload ==="video" && <iframe width="420" height="345" src={data.link}></iframe>}</div> ) )}
+                        {/* <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> */}
+                        
                     </div>
                 </div>
             </div>

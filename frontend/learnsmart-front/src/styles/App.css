@@ -219,11 +219,6 @@
   margin: 10px;
   border-color: #00bcd4;
 }
-span {
-  position: relative;
-  left: -12px;
-  
-}
 .uploadedLink {
   text-align: left;
 }
