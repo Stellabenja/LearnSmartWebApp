@@ -6,6 +6,7 @@ from flask_restful import Resource
 
 
 class UploadApi(Resource):
+    @jwt_required
     def post(self):
         body = request.get_json()
         upload = Upload(**body)
@@ -19,6 +20,7 @@ class UploadApi(Resource):
 
 
 class ShowUploads(Resource):
+    @jwt_required
     def post(self):
         body = request.get_json()
         print('heloo', body)
